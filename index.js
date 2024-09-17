@@ -13,7 +13,7 @@
  * Prints out the name of each item in the given array.
  * @param {Item[]} items - array of items
  */
-function logNames(items) {
+function logNames(items) { items.forEach((element)=> console.log(element.name));
   // TODO: use `forEach`
 }
 
@@ -21,7 +21,14 @@ function logNames(items) {
  * @param {Item[]} items - array of items
  * @returns {string[]} an array of item names in all uppercase
  */
-function getUppercaseNames(items) {
+function getUppercaseNames(items) { const newNames=[];
+  for(let i=0; i<items.length; i++){
+    const item=items[i];
+    const newName=item.name.toUpperCase();
+    newNames.push(newName);
+
+  }
+  return newNames;
   // TODO: use `map`
 }
 
@@ -31,6 +38,10 @@ function getUppercaseNames(items) {
  * @returns {Item} - the item in `items` with the given `id`
  */
 function getItemById(items, id) {
+  for (let i=0; i<items.length; i++){
+    const item=items[i].id;
+    if (item===id) return item;
+  }
   // TODO: use `find`
 }
 
@@ -40,6 +51,14 @@ function getItemById(items, id) {
  * @returns {number} the price of the item named `name`
  */
 function getItemPriceByName(items, name) {
+
+  for (let i=0; i<items.length; i++){
+const price=items[i].price;
+if (item.name===name)
+  return price;
+
+  }
+
   // TODO: use a loop!
 }
 
@@ -48,7 +67,13 @@ function getItemPriceByName(items, name) {
  * @param {string} category
  * @returns {Item[]} array of items that belong to the given `category`
  */
-function getItemsByCategory(items, category) {
+function getItemsByCategory(items, category) { const arr=[];
+  for (let i=0; i<items.length; i++){
+    const item=items[i].category;
+    if (item===category) arr.push(item);
+  }
+
+  return arr;
   // TODO: use `filter`
 }
 
@@ -56,7 +81,12 @@ function getItemsByCategory(items, category) {
  * @param {Item[]} items - array of items
  * @returns {number} the total quantity of all items
  */
-function countItems(items) {
+function countItems(items) {let counter=0;
+  for (let i=0; i<items.length; i++){
+    let amount=items[i].quantity;
+    counter= amount + counter;
+  }
+  return counter;
   // TODO: use `reduce`
 }
 
@@ -64,7 +94,12 @@ function countItems(items) {
  * @param {Item[]} items - array of items
  * @returns {number} the cost of all given items
  */
-function calculateTotalPrice(items) {
+function calculateTotalPrice(items) {let total=0;
+
+  for (let i=0; i<items.length; i++){
+    cost=items[i].price*items[i].quantity;
+    total=total+cost;
+  }
   // TODO: use `reduce`
 }
 
